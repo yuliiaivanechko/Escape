@@ -54,6 +54,11 @@ public class EnemyAI : MonoBehaviour
         GetComponent<Animator>().SetBool("attack", true);
     }
 
+    public void OnDamageTaken()
+    {
+        isProvoked = true;
+    }
+
     void FaceTarget()
     {
         Vector3 direction = (target.position - transform.position).normalized;
