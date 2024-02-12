@@ -1,3 +1,4 @@
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,12 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] Camera FPCamera;
-    [SerializeField] float damage = 30f;
     [SerializeField] float range = 100f;
+    [SerializeField] float damage = 30f;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitEffect;
-    [SerializeField] Ammo ammoSlots;
+    [SerializeField] Ammo ammoSlot;
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -18,29 +20,30 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        if (ammoSlots.GetCurrentAmmo() > 0)
+        if (ammoSlot.GetCurrentAmmo() > 0)
         {
-            ammoSlots.ReduceAmmoAmount();
             PlayMuzzleFlash();
             ProcessRaycast();
+            ammoSlot.ReduceAmmoAmount();
         }
     }
 
-    void ProcessRaycast()
+    private void PlayMuzzleFlash()
+    {
+        muzzleFlash.Play();
+    }
+
+    private void ProcessRaycast()
     {
         RaycastHit hit;
         if (Physics.Raycast(FPCamera.transform.position, FPCamera.transform.forward, out hit, range))
         {
             CreateHitImpact(hit);
             EnemyHealth target = hit.transform.GetComponent<EnemyHealth>();
-            if (target == null)
-            {
-                return;
-            }
+            if (target == null) return;
             target.TakeDamage(damage);
-            Debug.Log(hit.transform.name);
         }
         else
         {
@@ -48,13 +51,9 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    void PlayMuzzleFlash()
-    {
-        muzzleFlash.Play();
-    }
-    void CreateHitImpact(RaycastHit hit)
+    private void CreateHitImpact(RaycastHit hit)
     {
         GameObject impact = Instantiate(hitEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impact, 0.1f);
+        Destroy(impact, .1f);
     }
 }
