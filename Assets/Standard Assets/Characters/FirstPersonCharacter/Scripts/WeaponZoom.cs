@@ -11,14 +11,13 @@ public class WeaponZoom : MonoBehaviour
     [SerializeField] float zoomInFOV = 20f;
     [SerializeField] float zoomOutSensitivity = 2f;
     [SerializeField] float zoomInSensitivity = .5f;
-
+    [SerializeField] RigidbodyFirstPersonController fpsController;
     bool zoomedInToggle = false;
-    RigidbodyFirstPersonController fpsController;
-    void Start()
-    {
-        fpsController = GetComponentInParent<RigidbodyFirstPersonController>();
-    }
 
+    private void OnDisable()
+    {
+        ZoomOut();
+    }
 
     void Update()
     {
@@ -26,18 +25,28 @@ public class WeaponZoom : MonoBehaviour
         {
             if (zoomedInToggle == false)
             {
-                fpsController.mouseLook.XSensitivity = zoomInSensitivity;
-                fpsController.mouseLook.YSensitivity = zoomInSensitivity;
-                zoomedInToggle = true;
-                fpsCamera.fieldOfView = zoomInFOV;
+                ZoomIn();
             }
             else
             {
-                fpsController.mouseLook.XSensitivity = zoomOutSensitivity;
-                fpsController.mouseLook.YSensitivity = zoomOutSensitivity;
-                zoomedInToggle = false;
-                fpsCamera.fieldOfView = zoomOutFOV;
+                ZoomOut();
             }
         }
+    }
+
+    void ZoomIn()
+    {
+        fpsController.mouseLook.XSensitivity = zoomInSensitivity;
+        fpsController.mouseLook.YSensitivity = zoomInSensitivity;
+        zoomedInToggle = true;
+        fpsCamera.fieldOfView = zoomInFOV;
+    }
+
+    void ZoomOut()
+    {
+        fpsController.mouseLook.XSensitivity = zoomOutSensitivity;
+        fpsController.mouseLook.YSensitivity = zoomOutSensitivity;
+        zoomedInToggle = false;
+        fpsCamera.fieldOfView = zoomOutFOV;
     }
 }
