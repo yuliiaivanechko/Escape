@@ -118,10 +118,10 @@ GameObject:
   - component: {fileID: 6096374155745093641}
   - component: {fileID: 6507185804603941367}
   - component: {fileID: 4874433074101715411}
-  - component: {fileID: 4324201130245559850}
   - component: {fileID: 1232291837152802763}
   - component: {fileID: 4287472205610297592}
   - component: {fileID: 4305653660313603237}
+  - component: {fileID: 8422650695947876481}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -240,21 +240,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4324201130245559850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4602156658465688619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a843a5553cf243c9959afe4b6c07ac6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  chaseRange: 10
-  turnSpeed: 5
 --- !u!114 &1232291837152802763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,3 +287,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 40
+--- !u!114 &8422650695947876481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602156658465688619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855e5f507356dea45a4c1efa72be1d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  chaseRange: 20
+  turnSpeed: 5
