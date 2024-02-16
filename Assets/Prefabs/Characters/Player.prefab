@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 3230516122907129122}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,7 +372,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781ef95165d60489aa28b5c1f85517d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoAmount: 100
+  ammoSlots:
+  - ammoType: 0
+    ammoAmount: 10
+  - ammoType: 1
+    ammoAmount: 20
+  - ammoType: 2
+    ammoAmount: 8
 --- !u!1 &4946653611849585096
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,12 +443,12 @@ PrefabInstance:
     - target: {fileID: 5535656323711134614, guid: 7ba277ba23a0947e1b3a4c06d8bf9984,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5535656323711134614, guid: 7ba277ba23a0947e1b3a4c06d8bf9984,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5535656323711134614, guid: 7ba277ba23a0947e1b3a4c06d8bf9984,
         type: 3}
@@ -658,6 +664,11 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3230516122907129122}
+    - target: {fileID: 4790520219792042236, guid: ada2587319194f542957a8c2ae277cb9,
+        type: 3}
+      propertyPath: ammoType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -730,6 +741,11 @@ PrefabInstance:
       propertyPath: ammoSlot
       value: 
       objectReference: {fileID: 3230516122907129122}
+    - target: {fileID: 7565445587282301982, guid: b311a186405404ba69e1460c9f3d8e90,
+        type: 3}
+      propertyPath: ammoType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7920324399747659349, guid: b311a186405404ba69e1460c9f3d8e90,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
