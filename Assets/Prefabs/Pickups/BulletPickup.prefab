@@ -10,6 +10,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 598089853849532958, guid: ac1453c4bc4c8422baf86cc50b8a842e,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 598089853849532958, guid: ac1453c4bc4c8422baf86cc50b8a842e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 598089853849532958, guid: ac1453c4bc4c8422baf86cc50b8a842e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -61,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 3642092387807813635, guid: ac1453c4bc4c8422baf86cc50b8a842e,
         type: 3}
       propertyPath: m_Name
-      value: AmmoPickup
+      value: BulletPickup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
