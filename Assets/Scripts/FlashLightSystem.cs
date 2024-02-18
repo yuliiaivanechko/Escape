@@ -7,6 +7,7 @@ public class FlashLightSystem : MonoBehaviour
     [SerializeField] float lightDecay = 0.1f;
     [SerializeField] float angleDecay = 1f;
     [SerializeField] float minimumAngle = 40f;
+    [SerializeField] AudioSource pickupSoung;
     Light myLight;
     void Start()
     {
@@ -21,11 +22,13 @@ public class FlashLightSystem : MonoBehaviour
 
     public void RestoreLightAngle(float restoreAngle)
     {
+        pickupSoung.Play();
         myLight.spotAngle = restoreAngle;
     }
 
     public void AddLightIntensity(float restoreIntensity)
     {
+        pickupSoung.Play();
         myLight.intensity += restoreIntensity;
     }
 

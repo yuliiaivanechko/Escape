@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] float chaseRange = 5f;
     [SerializeField] float turnSpeed = 5f;
+    [SerializeField] AudioSource roar;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
@@ -42,6 +43,7 @@ public class EnemyAI : MonoBehaviour
         FaceTarget();
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
+            roar.Play();
             ChaseTarget();
         }
         else if (distanceToTarget <= navMeshAgent.stoppingDistance)
